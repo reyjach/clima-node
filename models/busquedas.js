@@ -12,7 +12,7 @@ class Busquedas {
         return {
             'limit': 5,
             'language': 'es',
-            'access_token': 'pk.eyJ1IjoicmV5amFjaCIsImEiOiJjbGJ5OTFhN3ExanY4M29xb3BrY2RibWswIn0.nk8XDTFXIS-3Pbtm_zfjtQ'
+            'access_token': process.env.MAPBOX_KEY
         }
     }
 
