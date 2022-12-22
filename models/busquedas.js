@@ -26,9 +26,13 @@ class Busquedas {
 
             const resp = await intace.get();
 
-            console.log(resp.data);
+            return resp.data.features.map( lugar => ({
+                id: lugar.id,
+                nombre: lugar.place_name,
+                lng: lugar.center[0],
+                lat: lugar.center[1]
+            }));
 
-            return[]; //retornar los lugares
         }catch(err) {
             console.log(err);
             return[];
