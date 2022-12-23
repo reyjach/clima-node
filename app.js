@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('colors');
 
 const { inquirerMenu, pausa, leerInput, listarLugares } = require("./helpers/inquirer");
 const Busquedas = require("./models/busquedas");
@@ -31,16 +32,18 @@ const main = async() => {
                 const {nombre, lng, lat} = lugarSel;
 
                 // Clima
-
+                const clima = await busquedas.climaLugar(lat,lng);
+                const { desc, min, max, temp} = clima
                 // Mostrar resultados
 
                 console.log('\nInformacion del lugar\n'.green);
-                console.log('Ciudad: ', nombre);
-                console.log('Latitud: ', lng);
-                console.log('Longitud: ', lat);
-                console.log('Temperatura: ');
-                console.log('Temperatura Minima: ');
-                console.log('Temperatura Maxima: ');
+                console.log('Ciudad: ', nombre.green);
+                console.log('Latitud: ', lat);
+                console.log('Longitud: ', lng);
+                console.log('Temperatura: ', temp);
+                console.log('Temperatura Minima: ', min);
+                console.log('Temperatura Maxima: ', max);
+                console.log('Como esta el clima: ', desc.green);
 
             break;
             case 2:
